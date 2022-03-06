@@ -1,0 +1,23 @@
+# Environments 
+bin/
+lib/
+Lib
+lib64/
+lib64
+share/
+include/
+Scripts/
+pyvenv.cfg
+.env
+
+# Visual Studio Code  
+.vscode/
+.history
+
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__
+*.sqlite3
+media
