@@ -32,9 +32,9 @@ run:
 
 format:
 	@echo "-> Run isort imports ordering validation"
-	@${ACTIVATE} isort clinic healthdesk users 
+	@${ACTIVATE} isort chat_server chat
 	@echo "-> Run black validation"
-	@${ACTIVATE} black clinic healthdesk users 
+	@${ACTIVATE} black chat_server chat
 
 test:
 	@${MANAGE} test
