@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, reverse
 from django.views.generic import CreateView, DetailView, ListView
 
@@ -28,3 +29,9 @@ class MessageView(CreateView):
         room = get_object_or_404(Room, pk=self.kwargs["pk"])
         form.instance.room = room
         return super().form_valid(form)
+
+
+def message_delete(request, message_id):
+    message = get_object_or_404(Message, pk=message_id)
+    message.delete()
+    return HttpResponse()
