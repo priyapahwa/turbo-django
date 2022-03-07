@@ -21,4 +21,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.RoomList.as_view(), name="index"),
     path("<slug:pk>/", views.RoomDetail.as_view(), name="room_detail"),
+    path("<slug:pk>/message_create", views.MessageView.as_view(), name="message_create"),
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import get_list_or_404, get_object_or_404, render, reverse
+from django.shortcuts import get_object_or_404, reverse
 from django.views.generic import CreateView, DetailView, ListView
 
 from chat.models import Message, Room
@@ -19,10 +19,10 @@ class RoomDetail(DetailView):
 class MessageView(CreateView):
     model = Message
     fields = ["text"]
-    template_name = "create_message.html"
+    template_name = "components/message_create.html"
 
     def get_success_url(self):
-        return reverse("send", kwargs={"pk": self.kwargs["pk"]})
+        return reverse("message_create", kwargs={"pk": self.kwargs["pk"]})
 
     def form_valid(self, form):
         room = get_object_or_404(Room, pk=self.kwargs["pk"])
