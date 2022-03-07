@@ -1,3 +1,5 @@
+{% load turbo_streams %}
+{% turbo_subscribe room %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +15,7 @@
     <turbo-frame id="message-list">
     <ul id="messages">
         {% for message in room.messages.all %}
-            <li>{{message.created_at}}: {{message.text}}</li>
+            {% include "components/message.html" with message=message only %}
         {% endfor %}
     </ul>
     </turbo-frame>
